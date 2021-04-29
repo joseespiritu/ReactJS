@@ -19,3 +19,8 @@ console.log(getHeroeById(1));
 const getHeroesByOwner = ( owner ) => heroes.filter( heroe => heroe.owner === owner );
 
 console.log(getHeroesByOwner('Marvel'));
+
+
+export {
+    getHeroeById as default
+}
