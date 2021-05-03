@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const PrimeraApp = ( {mensaje} ) => {
+const PrimeraApp = ( {mensaje, subtitulo} ) => {
 
-    const saludo = 'Hola Mundo';
+    //const saludo = 'Hola Mundo';
 
     const usuario = {
         nombre: 'Jose',
@@ -14,13 +14,17 @@ const PrimeraApp = ( {mensaje} ) => {
         <>
             <h1>{mensaje}</h1>
             <pre>{JSON.stringify(usuario, null, 3)}</pre>
-            <p>Mi primer aplicación</p>
+            <p>{ subtitulo }</p>
         </>
     );
 }
 
 PrimeraApp.propTypes = {
     mensaje: PropTypes.string.isRequired
+}
+
+PrimeraApp.defaultProps = {
+    subtitulo: 'Soy un subtitulo',
 }
 
 export default PrimeraApp;
