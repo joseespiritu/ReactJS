@@ -1,4 +1,5 @@
-import React from "react";
+// Before
+/* import React from "react";
 import ReactDOM from "react-dom";
 import GiftExperApp from "./GiftExperApp";
 import "./index.css";
@@ -6,7 +7,18 @@ import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(<GiftExperApp />, document.getElementById("root"));
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals(); */
+
+// After +18
+import React from "react";
+import { createRoot } from "react-dom/client";
+import GiftExperApp from "./GiftExperApp";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+
+const divRoot = document.getElementById("root");
+const root = createRoot(divRoot);
+
+root.render(<GiftExperApp />);
+
 reportWebVitals();

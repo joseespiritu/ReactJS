@@ -2,12 +2,8 @@ import React, { useState } from "react";
 import AddCategory from "./components/AddCategory";
 import GifGrid from "./components/GifGrid";
 
-const GiftExperApp = () => {
-  const [categories, setCategories] = useState(["One Punch"]);
-
-  // const handleAdd = () => {
-  //   setCategories([...categories, "HunterXHunter"]);
-  // };
+const GiftExperApp = ({ defaultCategories = [] }) => {
+  const [categories, setCategories] = useState(defaultCategories);
 
   return (
     <div>
