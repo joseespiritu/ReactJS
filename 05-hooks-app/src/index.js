@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Layout from "./components/05-useLayoutEffect/Layout";
+import MemoHook from "./components/06-memos/MemoHook";
+// import Memorize from "./components/06-memos/Memorize";
+// import Layout from "./components/05-useLayoutEffect/Layout";
 // import ReactExampleRef from "./components/04-useRef/ReactExampleRef";
 // import FocusScreen from "./components/04-useRef/FocusScreen";
 // import MultipleCustomHooks from "./components/03-examples/MultipleCustomHooks";
@@ -11,4 +13,4 @@ import Layout from "./components/05-useLayoutEffect/Layout";
 // import HookApp from "./HookApp";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Layout />);
+root.render(<MemoHook />);
