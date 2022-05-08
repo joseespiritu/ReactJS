@@ -14,9 +14,9 @@ export const useCounter = (initialState = 10) => {
   };
 
   return {
+    counter,
     decrement,
     increment,
     reset,
-    counter,
   };
 };
