@@ -1,46 +1,53 @@
-import { Link, NavLink } from 'react-router-dom';
-
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
-    return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
-            
-            <Link 
-                className="navbar-brand" 
-                to="/"
-            >
-                Asociaciones
-            </Link>
+  const navigate = useNavigate();
 
-            <div className="navbar-collapse">
-                <div className="navbar-nav">
+  const handleLogout = () => {
+    navigate("/login", {
+      replace: true,
+    });
+  };
 
-                    <NavLink 
-                        className={ ({isActive}) => `nav-item nav-link ${isActive ? 'active' : ''}` }
-                        to="/marvel"
-                    >
-                        Marvel
-                    </NavLink>
+  return (
+    <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
+      <Link className="navbar-brand" to="/">
+        Asociaciones
+      </Link>
 
-                    <NavLink 
-                        className={ ({isActive}) => `nav-item nav-link ${isActive ? 'active' : ''}` }
-                        to="/dc"
-                    >
-                        DC
-                    </NavLink>
-                </div>
-            </div>
+      <div className="navbar-collapse">
+        <div className="navbar-nav">
+          <NavLink
+            className={({ isActive }) =>
+              `nav-item nav-link ${isActive ? "active" : ""}`
+            }
+            to="/marvel"
+          >
+            Marvel
+          </NavLink>
 
-            <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
-                <ul className="navbar-nav ml-auto">
-                    <span className='nav-item nav-link text-primary'>
-                        Jose
-                    </span>
-                    <button className='nav-item nav-link btn'>
-                        Logout
-                    </button>
-                </ul>
-            </div>
-        </nav>
-    )
-}
+          <NavLink
+            className={({ isActive }) =>
+              `nav-item nav-link ${isActive ? "active" : ""}`
+            }
+            to="/dc"
+          >
+            DC
+          </NavLink>
+        </div>
+      </div>
+
+      <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
+        <ul className="navbar-nav ml-auto">
+          <span className="nav-item nav-link text-primary">Jose</span>
+          <button
+            className="nav-item nav-link btn btn-outline-secondary"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+        </ul>
+      </div>
+    </nav>
+  );
+};
