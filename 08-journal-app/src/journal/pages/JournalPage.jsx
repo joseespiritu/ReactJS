@@ -14,9 +14,9 @@ export const JournalPage = () => {
       </Typography> */}
 
       {/* NothingSelected */}
-      {/* <NothingSelectedView /> */}
+      <NothingSelectedView />
       {/* NoteView */}
-      <NoteView />
+      {/* <NoteView /> */}
 
       <IconButton
         size='large'
