@@ -136,4 +136,45 @@ describe('Pruebas en useAuthStore', () => {
         });
 
     });
+
+    test('checkAuthToken debe de fallar si no hay un token', async () => {
+        const mockStore = getMockStore({ ...initialState });
+        const { result } = renderHook(() => useAuthStore(), {
+            wrapper: ({ children }) => <Provider store={mockStore}>{children}</Provider>
+        });
+
+        await act(async () => {
+            await result.current.checkAuthToken(testUserCredentials);
+        });
+
+        const { errorMessage, status, user } = result.current;
+
+        expect({ errorMessage, status, user }).toEqual({
+            errorMessage: undefined,
+            status: 'not-authenticated',
+            user: {}
+        });
+    });
+
+    test('checkAuthToken debe de autenticar el usuario si hay un token', async () => {
+        const { data } = await calendarApi.post('/auth', testUserCredentials);
+        localStorage.setItem('token', data.token);
+
+        const mockStore = getMockStore({ ...initialState });
+        const { result } = renderHook(() => useAuthStore(), {
+            wrapper: ({ children }) => <Provider store={mockStore}>{children}</Provider>
+        });
+
+        await act(async () => {
+            await result.current.checkAuthToken();
+        });
+
+        const { errorMessage, status, user } = result.current;
+
+        expect({ errorMessage, status, user }).toEqual({
+            errorMessage: undefined,
+            status: 'authenticated',
+            user: { name: 'Jose', uid: '63470cbe9f3913d3b098ce79' }
+        });
+    });
 });
